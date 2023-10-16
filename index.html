@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+          <title>Angular Meetings</title>
+          <link rel="manifest" href="/manifest.json"><!-- <script src="/service-worker.js"></script> -->
+          <link rel="icon" type="image/png" href="https://ang.lovethecode.net/cloud192.png">
+          <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+          <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+          <script data-require="angular-filter@*" data-semver="0.5.7" src="//cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.7/angular-filter.js"></script>
+          <script src="scripts.js"></script>
+          <link href="styles.css" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Meetings</h1>
+        <div ng-app="meetingsApp" ng-controller="meetingsCtrl"> 
+            <section class="fixed-top">
+                        <div style="float: right;">
+                            <select name="dayDisplay" ng-model="selectedDay" ng-change="selectedDayHandler()">
+                                <option ng-repeat="item in dayArrNamed" value="{{item.name}}">{{item.name | uppercase}}</option>
+                            </select><br />
+                            <select name="regionDisplay" ng-model="selectedRegion" ng-change="selectedRegionHandler()">
+                                <option ng-repeat="item in regionArrNamed" value="{{item.name}}">{{item.name}}</option>
+                            </select>
+                        </div>
+            </section>
+            <ul class="main" ng-repeat="(key, value) in eventData | toArray:true | orderBy:'[day,region]' | groupBy: '[day,region]'" ng-init="$index=0">
+                <li id="{{ value[0].day | weekdayFilter }}" ng-class="addClss($index, value[0].day)" class="{{ value[0].day | weekdayFilter }} {{ value[0].region }}"><hr /><h2>{{ value[0].day | weekdayFilter | uppercase }}</h2>
+                </li>
+                <li id="{{ value[0].day | weekdayFilter }}{{ value[0].region }}"><hr /><h3>{{value[0].region}}</h3><hr /></li>      
+                <li class="details" ng-repeat="meeting in value">
+                    <div class="Rtable Rtable--6cols">
+                      <div class="Rtable-cell"><strong class="time">{{ meeting.time_formatted }}</strong><div class="attendance_mode" style="float:right;"><a ng-if="meeting.attendance_option=='online'" href="{{meeting.conference_url}}"><i class="bi bi-camera-video-fill"></i></a><a ng-if="meeting.attendance_option=='in_person'" href="{{ meeting.formatted_address | mapsEncoding }}" target="_blank"><i class="bi bi-pin-map-fill"></i></a><a ng-if="meeting.attendance_option=='hybrid'" href="{{ meeting.formatted_address | mapsEncoding }}" target="_blank"><i class="bi bi-pin-map-fill"></i></a><a class="hybrid-rt" ng-if="meeting.attendance_option=='hybrid'" href="{{meeting.conference_url}}"><i class="bi bi-camera-video-fill"></i></a><br ng-if="meeting.conference_phone" style="clear:both;" /><i ng-if="meeting.attendance_option=='inactive'" class="bi bi-x-circle-fill"></i></div></div>
+                      <div class="Rtable-cell"><a class="name" href="{{ meeting.url }}" target="_blank"><strong>{{ meeting.name }}</strong></a><br />{{ meeting.attendance_option }}</div>
+                      <div class="Rtable-cell"> {{ meeting.types }} <br /><a ng-if="meeting.conference_url" href="{{ meeting.conference_url }}">Link to Meeting <span ng-if="meeting.conference_url">{{ meeting.conference_url | vmFilter }}</a><span ng-if="!meeting.conference_url_notes"><br ng-if="meeting.notes" /><span ng-if="meeting.notes">Passcode {{ meeting.notes | notesFilter }}</span></span><span ng-if="meeting.conference_url_notes"><br />{{ meeting.conference_url_notes }}</span></span></a><br />{{ meeting.notes}}<br /><a ng-if="meeting.conference_phone" href="tel:{{meeting.conference_phone}}"><i style="font-size: 16px;" class="bi bi-telephone-fill"></i>{{ meeting.conference_phone | tel }}</a></div>
+                      <div class="Rtable-cell cell2"><a href="{{ meeting.formatted_address | mapsEncoding }}" target="_blank">{{ meeting.location }}</a></div>
+                    </div>
+                </li> 
+            </ul>
+        </div>     
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    </body>
+</html>
