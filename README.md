@@ -39,6 +39,14 @@ The feed has to allow CORS from wherever you host this app. `public/meetings.jso
 | Table: Time, Name, Location, Address, Region; stacks on mobile | Same |
 | Meeting detail with join links, directions, other meetings at the location | Same |
 
+### Add to calendar
+
+Each meeting page has **Google Calendar** and **Download .ics** buttons. Both create a weekly
+repeating event in the meeting's time zone (the feed's `timezone` field, or `SETTINGS.timezone`),
+so the local time stays put across daylight saving changes. The .ics file includes a generated
+`VTIMEZONE` block so Outlook desktop handles it too. Logic lives in `src/app/models/calendar.ts`.
+Meetings by appointment or temporarily closed don't get calendar buttons.
+
 Not included yet: the map view, distance/geolocation sorting, and translations.
 
 ## Angular 22 notes
@@ -60,6 +68,7 @@ src/app/
   models/meeting-types.ts         type codes, days, time windows
   models/normalize.ts             feed → Meeting (multi-day expansion, attendance)
   models/filters.ts               URL ⇄ filters, filtering + sorting
+  models/calendar.ts              Google Calendar link + .ics builder
   services/meetings-store.ts      loads feed, exposes signals
   components/filter-bar/          search + dropdowns + type multi-select
   components/meeting-list/        heading, results table
