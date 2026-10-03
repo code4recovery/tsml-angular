@@ -1,0 +1,91 @@
+<form class="bar" role="search" (submit)="$event.preventDefault()">
+  <label class="field search">
+    <span class="visually-hidden">Search meetings</span>
+    <input
+      type="search"
+      placeholder="Search by name, place, or type"
+      [value]="searchText()"
+      (input)="onSearch($any($event.target).value)"
+    />
+  </label>
+
+  @if (regions().length) {
+    <label class="field">
+      <span class="visually-hidden">Region</span>
+      <select [value]="filters().region ?? ''" (change)="onRegion($any($event.target).value)">
+        <option value="">Everywhere</option>
+        @for (r of regions(); track r) {
+          <option [value]="r" [selected]="r === filters().region">{{ r }}</option>
+        }
+      </select>
+    </label>
+  }
+
+  <label class="field">
+    <span class="visually-hidden">Day</span>
+    <select (change)="onDay($any($event.target).value)">
+      <option value="any" [selected]="filters().day === 'any'">Any day</option>
+      @for (d of days; track d.value) {
+        <option [value]="d.value" [selected]="filters().day === d.value">{{ d.label }}</option>
+      }
+    </select>
+  </label>
+
+  <label class="field">
+    <span class="visually-hidden">Time</span>
+    <select (change)="onTime($any($event.target).value)">
+      <option value="" [selected]="!filters().time">Any time</option>
+      @for (t of timeBuckets; track t.id) {
+        <option [value]="t.id" [selected]="filters().time === t.id">{{ t.label }}</option>
+      }
+    </select>
+  </label>
+
+  <div class="field types">
+    <button
+      type="button"
+      class="type-toggle"
+      [class.active]="filters().types.length"
+      aria-haspopup="true"
+      [attr.aria-expanded]="typeMenuOpen()"
+      (click)="typeMenuOpen.set(!typeMenuOpen())"
+    >
+      {{ typeButtonLabel() }}
+      <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+    </button>
+    @if (typeMenuOpen()) {
+      <fieldset class="type-menu">
+        <legend class="visually-hidden">Meeting types</legend>
+        @for (code of types(); track code) {
+          <label class="check">
+            <input
+              type="checkbox"
+              [checked]="filters().types.includes(code)"
+              (change)="toggleType(code, $any($event.target).checked)"
+            />
+            {{ code | typeLabel }}
+          </label>
+        } @empty {
+          <p class="none">No types in this feed.</p>
+        }
+        @if (filters().types.length) {
+          <button type="button" class="link" (click)="clearTypes()">Clear types</button>
+        }
+      </fieldset>
+    }
+  </div>
+
+  <label class="field">
+    <span class="visually-hidden">Attendance</span>
+    <select (change)="onAttendance($any($event.target).value)">
+      <option value="" [selected]="!filters().attendance">In person or online</option>
+      @for (a of attendanceOptions; track a.id) {
+        <option [value]="a.id" [selected]="filters().attendance === a.id">{{ a.label }}</option>
+      }
+    </select>
+  </label>
+
+  @if (hasActiveFilters()) {
+    <button type="button" class="link reset" (click)="reset()">Reset filters</button>
+  }
+</form>
