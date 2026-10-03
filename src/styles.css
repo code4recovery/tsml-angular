@@ -1,0 +1,52 @@
+:root {
+  --ink: #1d2433;
+  --muted: #5b6475;
+  --rule: #dfe3ea;
+  --surface: #ffffff;
+  --wash: #f5f7fa;
+  --link: #1f5fa8;
+  --link-hover: #154579;
+  --online: #0f766e;
+  --in-person: #1f5fa8;
+  --hybrid: #6d28d9;
+  --closed: #9a3412;
+  --focus: #f59e0b;
+  --radius: 6px;
+  font-family: 'Atkinson Hyperlegible', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--ink);
+  background: var(--surface);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; }
+
+a { color: var(--link); text-decoration: none; }
+a:hover { color: var(--link-hover); text-decoration: underline; }
+
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+
+button, input, select { font: inherit; color: inherit; }
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  overflow: hidden; clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Attendance badges, shared by list + detail */
+.badge {
+  display: inline-block; font-size: .8125rem; font-weight: 700;
+  padding: .05rem .5rem; border-radius: 999px; border: 1px solid currentColor;
+  white-space: nowrap;
+}
+.badge.online { color: var(--online); }
+.badge.in_person { color: var(--in-person); }
+.badge.hybrid { color: var(--hybrid); }
+.badge.inactive { color: var(--closed); }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}

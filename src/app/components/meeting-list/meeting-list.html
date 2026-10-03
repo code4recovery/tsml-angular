@@ -1,0 +1,71 @@
+<tsml-filter-bar
+  [filters]="filters()"
+  [regions]="data.regions()"
+  [types]="data.availableTypes()"
+  (changed)="update($event)"
+/>
+
+@switch (data.status()) {
+  @case ('loading') {
+    <p class="state" aria-live="polite">Loading meetings…</p>
+  }
+  @case ('error') {
+    <div class="state error" role="alert">
+      <p>{{ data.errorMessage() }}</p>
+      <button type="button" (click)="data.load()">Try again</button>
+    </div>
+  }
+  @default {
+    <h1 class="heading" aria-live="polite">
+      {{ heading() }}
+      <span class="count">{{ results().length }}</span>
+    </h1>
+
+    @if (results().length) {
+      <table class="meetings">
+        <thead>
+          <tr>
+            <th scope="col" class="c-time">Time</th>
+            <th scope="col">Name</th>
+            <th scope="col">Location</th>
+            <th scope="col">Address</th>
+            <th scope="col">Region</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (m of results(); track m.key) {
+            <tr>
+              <td class="c-time">
+                @if (filters().day === 'any') {
+                  <span class="day">{{ m.day | dayName }}</span>
+                }
+                <span class="time">{{ m.time | meetingTime }}</span>
+              </td>
+              <td class="c-name">
+                <a [routerLink]="['/meetings', m.slug]" [queryParams]="m.day !== null ? { day: m.day } : {}">{{ m.name }}</a>
+                @if (m.attendance !== 'in_person') {
+                  <span class="badge" [class]="m.attendance">{{ attendanceLabels[m.attendance] }}</span>
+                }
+              </td>
+              <td class="c-location">
+                {{ m.location }}
+                @if (m.group && m.group !== m.name) {
+                  <span class="group">{{ m.group }}</span>
+                }
+              </td>
+              <td class="c-address">{{ m.address }}</td>
+              <td class="c-region">{{ m.region }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    } @else {
+      <div class="state empty">
+        <p>No meetings match these filters.</p>
+        @if (filters().day !== 'any') {
+          <button type="button" (click)="showAnyDay()">Show every day</button>
+        }
+      </div>
+    }
+  }
+}

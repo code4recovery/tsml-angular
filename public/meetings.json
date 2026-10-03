@@ -1,0 +1,416 @@
+[
+  {
+    "name": "Sunrise Serenity",
+    "slug": "sunrise-serenity",
+    "day": [
+      3,
+      5
+    ],
+    "time": "18:00",
+    "end_time": "19:00",
+    "types": [
+      "O",
+      "D",
+      "X"
+    ],
+    "location": "Harbor Community Center",
+    "formatted_address": "410 Pier View Ave, Long Beach, CA 90802",
+    "region": "Long Beach",
+    "latitude": 33.767,
+    "longitude": -118.19,
+    "group": "Sunrise Serenity Group",
+    "updated": "2026-09-10"
+  },
+  {
+    "name": "Keep It Simple",
+    "slug": "keep-it-simple",
+    "day": 0,
+    "time": "06:30",
+    "end_time": "07:30",
+    "types": [
+      "C",
+      "D"
+    ],
+    "location": "St. Brendan's Hall",
+    "formatted_address": "1220 Elm St, Long Beach, CA 90813",
+    "region": "Long Beach",
+    "latitude": 33.781,
+    "longitude": -118.183,
+    "notes": "Enter through the side door by the parking lot.",
+    "updated": "2026-09-11",
+    "conference_url": "https://zoom.us/j/1234567890",
+    "conference_url_notes": "Meeting ID 123 456 7890, passcode serenity"
+  },
+  {
+    "name": "Lunch Bunch",
+    "slug": "lunch-bunch",
+    "day": 0,
+    "time": "20:00",
+    "end_time": "21:00",
+    "types": [
+      "O",
+      "SP",
+      "X",
+      "ONL",
+      "TC"
+    ],
+    "location": "Westside Fellowship Hall",
+    "formatted_address": "3301 Ocean Park Blvd, Santa Monica, CA 90405",
+    "region": "Westside",
+    "latitude": 34.017,
+    "longitude": -118.465,
+    "updated": "2026-09-12",
+    "conference_url": "https://meet.google.com/abc-defg-hij",
+    "conference_phone": "+1 669 900 6833,,1234567890#"
+  },
+  {
+    "name": "Happy Hour",
+    "slug": "happy-hour",
+    "day": 4,
+    "time": "18:00",
+    "end_time": "19:00",
+    "types": [
+      "C",
+      "ST",
+      "M"
+    ],
+    "location": "Valley Recovery House",
+    "formatted_address": "14410 Sherman Way, Van Nuys, CA 91405",
+    "region": "San Fernando Valley",
+    "latitude": 34.201,
+    "longitude": -118.449,
+    "group": "Happy Hour Group",
+    "updated": "2026-09-13"
+  },
+  {
+    "name": "Men's Stag",
+    "slug": "mens-stag",
+    "day": [
+      0,
+      6
+    ],
+    "time": "06:30",
+    "end_time": "07:30",
+    "types": [
+      "C",
+      "ST",
+      "W"
+    ],
+    "location": "Eastside Clubhouse",
+    "formatted_address": "2215 Cesar E Chavez Ave, Los Angeles, CA 90033",
+    "region": "East LA",
+    "latitude": 34.049,
+    "longitude": -118.209,
+    "notes": "Enter through the side door by the parking lot.",
+    "updated": "2026-09-14"
+  },
+  {
+    "name": "Women's Step Study",
+    "slug": "womens-step-study",
+    "day": 3,
+    "time": "19:00",
+    "end_time": "20:00",
+    "types": [
+      "O",
+      "B"
+    ],
+    "location": "Pasadena Friends Room",
+    "formatted_address": "95 N Marengo Ave, Pasadena, CA 91101",
+    "region": "Pasadena",
+    "latitude": 34.147,
+    "longitude": -118.145,
+    "updated": "2026-09-15"
+  },
+  {
+    "name": "Big Book Thumpers",
+    "slug": "big-book-thumpers",
+    "day": 1,
+    "time": "07:00",
+    "end_time": "08:00",
+    "types": [
+      "O",
+      "LS",
+      "D"
+    ],
+    "location": "Harbor Community Center",
+    "formatted_address": "410 Pier View Ave, Long Beach, CA 90802",
+    "region": "Long Beach",
+    "latitude": 33.767,
+    "longitude": -118.19,
+    "group": "Big Book Thumpers Group",
+    "updated": "2026-09-16",
+    "conference_url": "https://zoom.us/j/1234567890",
+    "conference_url_notes": "Meeting ID 123 456 7890, passcode serenity"
+  },
+  {
+    "name": "Living Sober",
+    "slug": "living-sober",
+    "day": 4,
+    "time": "07:00",
+    "end_time": "08:00",
+    "types": [
+      "O",
+      "Y",
+      "D",
+      "ONL",
+      "TC"
+    ],
+    "location": "St. Brendan's Hall",
+    "formatted_address": "1220 Elm St, Long Beach, CA 90813",
+    "region": "Long Beach",
+    "latitude": 33.781,
+    "longitude": -118.183,
+    "notes": "Enter through the side door by the parking lot.",
+    "updated": "2026-09-17",
+    "conference_url": "https://meet.google.com/abc-defg-hij",
+    "conference_phone": "+1 669 900 6833,,1234567890#"
+  },
+  {
+    "name": "Young People's",
+    "slug": "young-peoples",
+    "day": [
+      6
+    ],
+    "time": "19:00",
+    "end_time": "20:00",
+    "types": [
+      "S",
+      "O",
+      "D"
+    ],
+    "location": "Westside Fellowship Hall",
+    "formatted_address": "3301 Ocean Park Blvd, Santa Monica, CA 90405",
+    "region": "Westside",
+    "latitude": 34.017,
+    "longitude": -118.465,
+    "updated": "2026-09-18"
+  },
+  {
+    "name": "Spanish Speaking",
+    "slug": "spanish-speaking",
+    "day": 0,
+    "time": "21:30",
+    "end_time": "22:30",
+    "types": [
+      "CAN",
+      "C",
+      "D"
+    ],
+    "location": "Valley Recovery House",
+    "formatted_address": "14410 Sherman Way, Van Nuys, CA 91405",
+    "region": "San Fernando Valley",
+    "latitude": 34.201,
+    "longitude": -118.449,
+    "group": "Spanish Speaking Group",
+    "updated": "2026-09-19"
+  },
+  {
+    "name": "Candlelight",
+    "slug": "candlelight",
+    "day": 5,
+    "time": "12:15",
+    "end_time": "13:15",
+    "types": [
+      "BE",
+      "O",
+      "D",
+      "X"
+    ],
+    "location": "Eastside Clubhouse",
+    "formatted_address": "2215 Cesar E Chavez Ave, Los Angeles, CA 90033",
+    "region": "East LA",
+    "latitude": 34.049,
+    "longitude": -118.209,
+    "notes": "Enter through the side door by the parking lot.",
+    "updated": "2026-09-10"
+  },
+  {
+    "name": "Newcomers Welcome",
+    "slug": "newcomers-welcome",
+    "day": 4,
+    "time": "22:00",
+    "end_time": "23:00",
+    "types": [
+      "GR",
+      "O"
+    ],
+    "location": "Pasadena Friends Room",
+    "formatted_address": "95 N Marengo Ave, Pasadena, CA 91101",
+    "region": "Pasadena",
+    "latitude": 34.147,
+    "longitude": -118.145,
+    "updated": "2026-09-11",
+    "conference_url": "https://zoom.us/j/1234567890",
+    "conference_url_notes": "Meeting ID 123 456 7890, passcode serenity"
+  },
+  {
+    "name": "Grapevine Group",
+    "slug": "grapevine-group",
+    "day": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "time": "06:30",
+    "end_time": "07:30",
+    "types": [
+      "ABSI",
+      "C",
+      "ONL",
+      "TC"
+    ],
+    "location": "Harbor Community Center",
+    "formatted_address": "410 Pier View Ave, Long Beach, CA 90802",
+    "region": "Long Beach",
+    "latitude": 33.767,
+    "longitude": -118.19,
+    "group": "Grapevine Group",
+    "updated": "2026-09-12",
+    "conference_url": "https://meet.google.com/abc-defg-hij",
+    "conference_phone": "+1 669 900 6833,,1234567890#"
+  },
+  {
+    "name": "As Bill Sees It",
+    "slug": "as-bill-sees-it",
+    "day": 0,
+    "time": "20:00",
+    "end_time": "21:00",
+    "types": [
+      "O",
+      "D",
+      "SM",
+      "TC"
+    ],
+    "location": "St. Brendan's Hall",
+    "formatted_address": "1220 Elm St, Long Beach, CA 90813",
+    "region": "Long Beach",
+    "latitude": 33.781,
+    "longitude": -118.183,
+    "notes": "Enter through the side door by the parking lot.",
+    "updated": "2026-09-13"
+  },
+  {
+    "name": "Night Owls",
+    "slug": "night-owls",
+    "day": 2,
+    "time": "21:30",
+    "end_time": "22:30",
+    "types": [
+      "DR",
+      "O",
+      "BRK"
+    ],
+    "location": "Westside Fellowship Hall",
+    "formatted_address": "3301 Ocean Park Blvd, Santa Monica, CA 90405",
+    "region": "Westside",
+    "latitude": 34.017,
+    "longitude": -118.465,
+    "updated": "2026-09-14"
+  },
+  {
+    "name": "Daily Reflections",
+    "slug": "daily-reflections",
+    "day": 6,
+    "time": "20:00",
+    "end_time": "21:00",
+    "types": [
+      "O",
+      "SP",
+      "H"
+    ],
+    "location": "Valley Recovery House",
+    "formatted_address": "14410 Sherman Way, Van Nuys, CA 91405",
+    "region": "San Fernando Valley",
+    "latitude": 34.201,
+    "longitude": -118.449,
+    "group": "Daily Reflections Group",
+    "updated": "2026-09-15"
+  },
+  {
+    "name": "Saturday Speaker",
+    "slug": "saturday-speaker",
+    "day": [
+      0,
+      4
+    ],
+    "time": "22:00",
+    "end_time": "23:00",
+    "types": [
+      "B",
+      "C",
+      "X"
+    ],
+    "location": "Eastside Clubhouse",
+    "formatted_address": "2215 Cesar E Chavez Ave, Los Angeles, CA 90033",
+    "region": "East LA",
+    "latitude": 34.049,
+    "longitude": -118.209,
+    "notes": "Enter through the side door by the parking lot.",
+    "updated": "2026-09-16",
+    "conference_url": "https://zoom.us/j/1234567890",
+    "conference_url_notes": "Meeting ID 123 456 7890, passcode serenity"
+  },
+  {
+    "name": "Back to Basics",
+    "slug": "back-to-basics",
+    "day": 5,
+    "time": "21:30",
+    "end_time": "22:30",
+    "types": [
+      "TR",
+      "O",
+      "ONL",
+      "TC"
+    ],
+    "location": "Pasadena Friends Room",
+    "formatted_address": "95 N Marengo Ave, Pasadena, CA 91101",
+    "region": "Pasadena",
+    "latitude": 34.147,
+    "longitude": -118.145,
+    "updated": "2026-09-17",
+    "conference_url": "https://meet.google.com/abc-defg-hij",
+    "conference_phone": "+1 669 900 6833,,1234567890#"
+  },
+  {
+    "name": "Tradition Talk",
+    "slug": "tradition-talk",
+    "day": 2,
+    "time": "12:15",
+    "end_time": "13:15",
+    "types": [
+      "11",
+      "MED",
+      "O"
+    ],
+    "location": "Harbor Community Center",
+    "formatted_address": "410 Pier View Ave, Long Beach, CA 90802",
+    "region": "Long Beach",
+    "latitude": 33.767,
+    "longitude": -118.19,
+    "group": "Tradition Talk Group",
+    "updated": "2026-09-18"
+  },
+  {
+    "name": "Meditation Hour",
+    "slug": "meditation-hour",
+    "day": 4,
+    "time": "07:00",
+    "end_time": "08:00",
+    "types": [
+      "O",
+      "D",
+      "X"
+    ],
+    "location": "St. Brendan's Hall",
+    "formatted_address": "1220 Elm St, Long Beach, CA 90813",
+    "region": "Long Beach",
+    "latitude": 33.781,
+    "longitude": -118.183,
+    "notes": "Enter through the side door by the parking lot.",
+    "updated": "2026-09-19"
+  }
+]

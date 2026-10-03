@@ -1,0 +1,118 @@
+<a class="back" routerLink="/" [queryParams]="data.lastListParams()">
+  <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M9 2L4 7l5 5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+  Back to meetings
+</a>
+
+@if (data.status() === 'loading') {
+  <p class="state">Loading meeting…</p>
+} @else {
+@if (meeting(); as m) {
+  <article class="detail">
+    <header>
+      <h1>{{ m.name }}</h1>
+      <p class="when">
+        {{ m.day | dayName }}, {{ m.time | meetingTime }}@if (m.endTime) { to {{ m.endTime | meetingTime }} }
+        <span class="badge" [class]="m.attendance">{{ attendanceLabels[m.attendance] }}</span>
+      </p>
+      @if (calendarEvent()) {
+        <div class="add-to-calendar" role="group" aria-label="Add to calendar">
+          <span class="label">Add to calendar:</span>
+          <a class="cal" [href]="googleCalendarLink()" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="2.5" width="13" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M1.5 6h13M5 1v3M11 1v3" stroke="currentColor" stroke-width="1.4"/></svg>
+            Google Calendar
+          </a>
+          <button type="button" class="cal" (click)="downloadIcs()">
+            <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5v9M4.5 7 8 10.5 11.5 7M2 13.5h12" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+            Download .ics
+          </button>
+          <span class="hint">Apple Calendar, Outlook, and others. Repeats every {{ meeting()!.day | dayName }}.</span>
+        </div>
+      }
+      @if (occurrences().length > 1) {
+        <p class="also">
+          Also meets:
+          @for (o of occurrences(); track o.key) {
+            @if (o.key !== m.key) {
+              <a [routerLink]="['/meetings', m.slug]" [queryParams]="{ day: o.day }">{{ o.day | dayName }}</a>
+            }
+          }
+        </p>
+      }
+    </header>
+
+    <div class="cols">
+      <section class="main">
+        @if (contentTypes().length) {
+          <h2 class="visually-hidden">Meeting types</h2>
+          <ul class="types">
+            @for (t of contentTypes(); track t) {
+              <li>{{ t | typeLabel }}</li>
+            }
+          </ul>
+        }
+
+        @if (m.notes) {
+          <p class="notes">{{ m.notes }}</p>
+        }
+
+        @if (m.attendance === 'online' || m.attendance === 'hybrid') {
+          <div class="panel online">
+            <h2>Join online</h2>
+            @if (m.conferenceUrl) {
+              <a class="button" [href]="m.conferenceUrl" target="_blank" rel="noopener">Join meeting</a>
+              @if (m.conferenceUrlNotes) { <p class="small">{{ m.conferenceUrlNotes }}</p> }
+            }
+            @if (m.conferencePhone) {
+              <p><a [href]="telHref(m.conferencePhone)">Join by phone</a></p>
+              @if (m.conferencePhoneNotes) { <p class="small">{{ m.conferencePhoneNotes }}</p> }
+            }
+          </div>
+        }
+
+        @if (m.group) {
+          <div class="panel">
+            <h2>Group</h2>
+            <p>{{ m.group }}</p>
+            @if (m.groupNotes) { <p class="small">{{ m.groupNotes }}</p> }
+          </div>
+        }
+      </section>
+
+      @if (m.address) {
+        <aside class="panel location">
+          <h2>{{ m.location || 'Location' }}</h2>
+          @if (m.attendance === 'inactive' || m.types.includes('TC')) {
+            <p class="closed">This location is temporarily closed.</p>
+          }
+          <p>{{ m.address }}</p>
+          @if (m.region) { <p class="small">{{ m.region }}</p> }
+          @if (m.locationNotes) { <p class="small">{{ m.locationNotes }}</p> }
+          @if (directionsUrl(); as url) {
+            <a class="button" [href]="url" target="_blank" rel="noopener">Get directions</a>
+          }
+
+          @if (sameLocation().length) {
+            <h3>Other meetings here</h3>
+            <ul class="others">
+              @for (o of sameLocation(); track o.key) {
+                <li>
+                  <span class="when-small">{{ o.day | dayName }}, {{ o.time | meetingTime }}</span>
+                  <a [routerLink]="['/meetings', o.slug]" [queryParams]="o.day !== null ? { day: o.day } : {}">{{ o.name }}</a>
+                </li>
+              }
+            </ul>
+          }
+        </aside>
+      }
+    </div>
+
+    @if (m.updated) {
+      <p class="updated">Updated {{ m.updated }}</p>
+    }
+  </article>
+} @else {
+  <div class="state">
+    <p>This meeting isn't in the current listing. It may have moved or ended.</p>
+  </div>
+}
+}
