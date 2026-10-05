@@ -1,4 +1,4 @@
-# TSML-Ang
+# TSML-Angular
 
 An Angular take on [tsml-ui](https://github.com/code4recovery/tsml-ui): a meeting finder for
 12 Step Meeting List / Meeting Guide JSON feeds, with filtering by **day**, **time**, **type**,
