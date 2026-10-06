@@ -6,7 +6,7 @@
  */
 export const SETTINGS = {
   title: 'Find a meeting',
-  feedUrl: 'meetings.json',
+  feedUrl: 'https://hacoaa.org/wp-admin/admin-ajax.php?action=meetings', //'http://localhost:5001/api/v1/meetings?hours=168', //'meetings.json',
   /** First day of the week in the day dropdown: 0 = Sunday, 1 = Monday */
   weekStart: 0,
   /** Day to show when no ?day= is in the URL: 'today' or 'any' */
